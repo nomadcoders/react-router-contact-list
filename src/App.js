@@ -27,13 +27,18 @@ const Welcome = () => (
   <h3>Welcome to the best contact app in the world. ever. always</h3>
 );
 
-const Contacts = () => (
+const Contacts = ({ match }) => (
   <ul>
     <li>Lynn</li>
     <li>Japan Guy</li>
     <li>Jisu Kimchi</li>
     <li>Juan Malakas</li>
+
+    <Route exact={match.path} render={() => <h3>Please select a contact</h3>} />
+    <Route path={`${match.path}/:contactName`} component={Contact} />
   </ul>
 );
+
+const Contact = ({ match }) => JSON.stringify(match);
 
 export default App;

@@ -29,16 +29,30 @@ const Welcome = () => (
 
 const Contacts = ({ match }) => (
   <ul>
-    <li>Lynn</li>
-    <li>Japan Guy</li>
-    <li>Jisu Kimchi</li>
-    <li>Juan Malakas</li>
+    <li>
+      <Link to={`${match.path}/lynn`}>Lynn</Link>
+    </li>
+    <li>
+      <Link to={`${match.path}/japan-guy`}>Japan Guy</Link>
+    </li>
+    <li>
+      <Link to={`${match.path}/jisu-kimchi`}>Jisu Kimchi</Link>
+    </li>
+    <li>
+      <Link to={`${match.path}/juan-malakas`}>Juan Malakas</Link>
+    </li>
 
-    <Route exact={match.path} render={() => <h3>Please select a contact</h3>} />
+    <Route
+      exact
+      path={match.path}
+      render={() => <h3>Please select a contact</h3>}
+    />
     <Route path={`${match.path}/:contactName`} component={Contact} />
   </ul>
 );
 
-const Contact = ({ match }) => JSON.stringify(match);
+const Contact = ({ match }) => (
+  <h3>Your contact name is: {match.params.contactName}</h3>
+);
 
 export default App;

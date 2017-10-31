@@ -10,6 +10,14 @@ const App = () => (
 const Header = () => (
   <header>
     <h1>My Contacts</h1>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/contacts">Contacts</Link>
+      </li>
+    </ul>
     <Route exact path="/" component={Welcome} />
     <Route path="/contacts" component={Contacts} />
   </header>
